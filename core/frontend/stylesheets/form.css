@@ -1,0 +1,24 @@
+input {
+  border: 0px;
+  width: 300px;
+}
+
+button {
+  padding: 8px 15px;
+  color: var(--medium-gray);
+  font-weight: bolder;
+  background-color: var(--white);
+  border: 2px solid var(--gray);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--light-gray);
+}
+
+button.add-review-button {
+  position: relative;
+  float: right;
+  top: 5px;
+}

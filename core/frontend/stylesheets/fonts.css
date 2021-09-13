@@ -1,0 +1,17 @@
+*, p, a:link, a:hover, a:visited, a:active, body, b, a, a:link, a:hover, a:visited {
+  color: var(--font-color);
+  font-size: 14px;
+  font-family: Calibri, sans-serif, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Calibri, Candara, Segoe, Segoe UI, Optima, Arial;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--font-color);
+}
+
+h1 { font-size: 36px; }
+
+span.rating {
+  font-style: "Helvetica Neue Light";
+  font-weight: lighter;
+  font-size: 36px;
+}
