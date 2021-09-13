@@ -15,7 +15,7 @@ $(document).ready (function () {
 
       return string;
     });
-
+    
     // Set how many stars to show on the Add review form upon the start of the page.
     updateStars ($('#stars').val ());
 
