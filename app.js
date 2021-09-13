@@ -1,59 +1,24 @@
 const http = require ('http');
-const fs = require ('fs');
-const serverInternal = require ('./server/internal.js');
+const { requestHandler } = require ('./core/server/requestHandler.js');
 
-serverInternal.log ();
+const server = http.createServer ((req, res) => {
+  switch (req.method) {
+    case "GET":
+      requestHandler (req, res);
+    break;
+    case "POST":
+      var body = "";
 
-const server = http.createServer ((req, res) => {/* ------------------------------------------------------------------------ */
-  // Begin: Compose and send response to the client.
-  // Setting the content type in the header to 'text/html'.
-  res.setHeader ('Content-type', 'text/html');
+      req.on("data", function (chunk) { body += chunk; });
+      res.json ({ testing: { testing: "testing123" }});
 
-  // Intercepting the route and output the appropriate response to the client.
-  switch (req.url) {
-    case "/":
-      fs.readFile ('./views/index.html', (error, data) => {
-        if (error) {
-          res.statusCode = 500;
-          console.log (error);
-        } else {
-          res.statusCode = 200;
-          res.write (data);
-        }
-
-        res.end ();
+      req.on("end", function(){
+        console.log (body);
       });
     break;
-    case "/reviews":
-      fs.readFile ('./resources/reviews/reviews.json', (error, data) => {
-        if (error) {
-          res.statusCode = 500;
-          console.log (error);
-        } else {
-          res.statusCode = 200;
-          res.write (data);
-        }
-
-        res.end ();
-      });
-    break;
-    default:
-      fs.readFile ('./views/not-found.html', (error, data) => {
-        if (error) {
-          res.statusCode = 500;
-          console.log (error);
-        } else {
-          res.statusCode = 404;
-          res.write (data);
-        }
-
-        res.end ();
-      });
   }
-  // End: Compose and send response to the client.
-  /* ------------------------------------------------------------------------ */
 });
 
 server.listen (3000, 'localhost', () => {
-  console.log ('Listening for request on port 3000');
+  console.log ('Coding challenge MVP started...');
 });
