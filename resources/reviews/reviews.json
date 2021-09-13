@@ -1,0 +1,19 @@
+{
+  "commenter1": {
+    username: "commeter 1",
+    rating: 3,
+    review: "This book is alright"
+  },
+
+  "commenter2": {
+    username: "commeter 2",
+    rating: 5,
+    review: "This book is great!"
+  },
+
+  "commenter3": {
+    username: "commeter 3",
+    rating: 1,
+    review: "This book is a waste of time!"
+  }
+}
