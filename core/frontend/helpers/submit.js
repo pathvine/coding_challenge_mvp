@@ -1,5 +1,5 @@
 $(document).ready (function () {
-  const refreshStarsContainer = function (numOfStars) {
+  ;(function refreshStarsContainer () {
     // Empty the #starsContainer first.
     $('#starsContainer').empty ();
 
@@ -9,15 +9,13 @@ $(document).ready (function () {
 
       for (let s = 1; s <= 5; s++) {
         string += "<img id='star" + s + "' rating='" + s + "' class='update-star' src='/graphics/" +
-                  (numOfStars >= s ? "yellowstar" : "graystar") +
+                  ($('#stars').val () >= s ? "yellowstar" : "graystar") +
                   ".svg' width='25' height='25'>";
       }
 
       return string;
     });
-  };
-
-  refreshStarsContainer ();
+  }) ();
 
   $('#reviewForm').on ('submit', function () {
     event.preventDefault ();
@@ -33,7 +31,13 @@ $(document).ready (function () {
       contentType: "application/json",
       data: JSON.stringify ({ stars: Number ($('#stars').val ()), review: $('#review').val () }),
       success: function (res) {
+        // Update the list of reviews and the average rating.
         console.log (res);
+        // Clear the input values.
+        $('#review').val ('');
+        $('#stars').val (3);
+
+        updateStars ($('#stars').val ());
       }
     });
   });
