@@ -10,11 +10,9 @@ const server = http.createServer ((req, res) => {
       var body = "";
 
       req.on("data", function (chunk) { body += chunk; });
-      res.json ({ testing: { testing: "testing123" }});
 
-      req.on("end", function(){
-        console.log (body);
-      });
+      res.writeHead(200, {'Content-Type': 'application/json'});
+      res.end (JSON.stringify ({ testing: { testing: "testing123" }}));
     break;
   }
 });
