@@ -16,3 +16,7 @@ div.add-review-cell {
   width: 29%;
   display: inline-block;
 }
+
+div.form-container {
+  margin-bottom: 20px;
+}

@@ -15,3 +15,7 @@ span.rating {
   font-weight: lighter;
   font-size: 36px;
 }
+
+span.bold-font { font-weight: bold; }
+
+span.gray-font { color: var(--medium-gray); }

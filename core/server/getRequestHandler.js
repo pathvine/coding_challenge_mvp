@@ -1,19 +1,18 @@
 /* -------------------------------------------------------------------------- */
 // This module handles all the requests coming to this app.
 /* -------------------------------------------------------------------------- */
-const http = require ('http'),
-      fs = require ('fs'),
+const fs = require ('fs'),
       layout = require ('./layout.js'),
       { getContentType } = require ('./contentType.js'),
-      { routes, notFoundRoute } = require ('../routes/routes.js'); // Import the routes.
+      { getRoutes, notFoundRoute } = require ('../routes/routes.js'); // Import the routes.
 
-function requestHandler (req, res) {
+function getRequestHandler (req, res) {
   /* ------------------------------------------------------------------------ */
   // Begin: Compose and send response to the client.
   // Determine whether the route is not found.
-  let isNotFound = !routes.has (req.url),
+  let isNotFound = !getRoutes.has (req.url),
   // Define the destination route.
-      destRoute = !isNotFound ? routes.get (req.url) : notFoundRoute,
+      destRoute = !isNotFound ? getRoutes.get (req.url) : notFoundRoute,
   // Get the response header content type based on the destination route's
   // file type.
       contentType = getContentType (destRoute),
@@ -45,9 +44,8 @@ function requestHandler (req, res) {
   }
   // End: Compose and send response to the client.
   /* ------------------------------------------------------------------------ */
-
 }
 
 module.exports = {
-  requestHandler: requestHandler
+  getRequestHandler: getRequestHandler
 };

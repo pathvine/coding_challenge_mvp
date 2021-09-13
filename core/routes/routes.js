@@ -4,7 +4,8 @@
 
 /* -------------------------------------------------------------------------- */
 // Begin: Define all the routes for this app.
-const routes = new Map ([
+// Define the routes for GET requests.
+const getRoutes = new Map ([
         // HTML
         ['/', './core/frontend/views/index.html'],
 
@@ -24,12 +25,19 @@ const routes = new Map ([
         ['/public/stylesheets/form.css', './core/frontend/stylesheets/form.css'],
         ['/public/stylesheets/container.css', './core/frontend/stylesheets/container.css']
       ]),
+// Define the routes for POST requests.
+      postRoutes = new Map ([
+              // Review records
+              ['/', './resources/reviews/reviews.json'],
+            ]),
+// Define the not found route.
       notFoundRoute = './core/frontend/views/not-found.html';
 // End: Define all the routes for this app.
 /* -------------------------------------------------------------------------- */
 
 // Export the routes.
 module.exports = {
-  routes: routes,
+  getRoutes: getRoutes,
+  postRoutes: postRoutes,
   notFoundRoute: notFoundRoute
 };

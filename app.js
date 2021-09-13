@@ -1,20 +1,14 @@
 const http = require ('http');
-const { requestHandler } = require ('./core/server/requestHandler.js');
+const { getRequestHandler } = require ('./core/server/getRequestHandler.js');
+const { postRequestHandler } = require ('./core/server/postRequestHandler.js');
 
 const server = http.createServer ((req, res) => {
   switch (req.method) {
     case "GET":
-      requestHandler (req, res);
+      getRequestHandler (req, res);
     break;
     case "POST":
-      var body = "";
-
-      req.on("data", function (chunk) { body += chunk; });
-      res.json ({ testing: { testing: "testing123" }});
-
-      req.on("end", function(){
-        console.log (body);
-      });
+      postRequestHandler (req, res);
     break;
   }
 });

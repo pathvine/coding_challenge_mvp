@@ -2,29 +2,17 @@
   <div class="review-container">
     <h1>The Minimalist Entrepreneur</h1>
     <div class="rating-container">
-      <div class="rating-cell">
-        <span class="rating">3.8</span>&nbsp;&nbsp;
-        <img src="/graphics/yellowstar.svg" width="25" height="25">
-        <img src="/graphics/yellowstar.svg" width="25" height="25">
-        <img src="/graphics/yellowstar.svg" width="25" height="25">
-        <img src="/graphics/yellowstar.svg" width="25" height="25">
-        <img src="/graphics/graystar.svg" width="25" height="25">
-      </div>
+      <div id="avgRatingCell" class="rating-cell"></div>
       <div class="add-review-cell">
         <button id="addReview" class="add-review-button">Add review</button>
       </div>
       <hr color="#c3c3c3"/>
-      <div class="rating-container">
-
-
-      </div>
-      <div class="form-container">
+      <div id="addReviewFormContainer" class="form-container" style="display: none">
         <h1>What's your rating?</h1>
         <form id="reviewForm">
           Rating
           <br/><br/>
-          <div id="starsContainer">
-          </div>
+          <div id="starsContainer"></div>
           <br/><br/>
           Review
           <br/><br/>
@@ -34,6 +22,8 @@
           <button type="submit" id="submitReview">Submit review</button>
         </form>
       </div>
+
+      <div id="reviewsContainer" class="reviews-container"></div>
     </div>
   </div>
 </div>
